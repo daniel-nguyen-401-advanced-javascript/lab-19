@@ -25,28 +25,29 @@ app.use(morgan('dev'));
 app.get('/', (req, res, next) => {
   res.status(200);
   res.send('Homepage');
-})
+});
 
 //create route for client ('customer') to write an order
 
-app.post('/delivery/:vendor/:order-id', (req, res, next) => {
+app.post('/delivery/:vendor/:order', (req, res, next) => {
   let order = {
     vendor: req.params.vendor,
-    orderID: req.params.order-id,
+    orderID: req.params.order,
   };
 
-  socket.on('order-queued', (payload) => {
+  if(!(order.vendor === 'vendor01' || order.vendor === 'vendor02')){
+    res.status(400);
+    res.send('Incorrect vendor format');
+  } else {
+    socket.emit('order-created', order);
     res.status(200);
-    res.send('successfully queued order');
-  });
-  socket.emit('order-created', order);
+    res.send('Sent order to queue');
+  }
 
   //send order to the queue
   //when queue gets it, return a response
 });
 
 app.listen(3000, () => {
-  console.log('App is up and running on port 3000');
+  console.log('Delivery API server is up and running on port 3000');
 });
-
-//paused at 32 minutes into lecture video

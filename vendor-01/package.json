@@ -1,0 +1,13 @@
+{
+  "name": "vendor-01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "vendor-01.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node vendor-01.js",
+    "startdev": "nodemon vendor-01.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
