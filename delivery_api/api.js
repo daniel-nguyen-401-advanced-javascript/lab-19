@@ -35,11 +35,15 @@ app.post('/delivery/:vendor/:order', (req, res, next) => {
     orderID: req.params.order,
   };
 
+  //should this (order-created) be 'delivered'?
+  //yes delivered
+  //also have delivered event log 'delivery', order
   if(!(order.vendor === 'vendor01' || order.vendor === 'vendor02')){
     res.status(400);
     res.send('Incorrect vendor format');
   } else {
-    socket.emit('order-created', order);
+    socket.emit('delivered', order);
+    console.log('delivery', order);
     res.status(200);
     res.send('Sent order to queue');
   }
@@ -49,5 +53,5 @@ app.post('/delivery/:vendor/:order', (req, res, next) => {
 });
 
 app.listen(3000, () => {
-  console.log('Delivery API server is up and running on port 3000');
+  console.log('API server is up and running on port 3000');
 });

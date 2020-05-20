@@ -27,14 +27,16 @@ The delivery API server should expose an HTTP POST route of the format `/deliver
     
 ## Testing Instructions
     
-- open 3 terminal windows
+- open 4 terminal windows
 * window 1 should be `queue-server.js`
 * window 2 should be `delivery_api/api.js`
 * window 3 should be `vendor-01/vendor-01.js`
 * window 4 should be `vendor-02/vendor-02.js`
 - run `npm start`, in order, on `queue-server`, then `api`, then `vendor-01`, then `vendor-02`
 - that should get your logs going properly
-- fire up Postman or Insomnia and write a POST route to: 
-
+- fire up Postman or Insomnia and write a POST route to: http://localhost:3000/delivery/(vendor)/(order)
+- replace (vendor) with either `vendor01` or `vendor02`
+- replace (order) with any string
+- You should see the outputs outlined in the lab description
 ## UML
-![lab-18-uml](/lab-18-uml.jpg)
+![lab-19-uml](/lab-19-uml.jpg)
