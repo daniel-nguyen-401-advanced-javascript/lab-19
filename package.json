@@ -1,0 +1,28 @@
+{
+  "name": "lab-19",
+  "version": "1.0.0",
+  "description": "In this lab, you’ll combine Express servers and sockets, to have a communication network over both HTTP and TCP. This lab will only be focusing on order delivery, and not on order creation or transit. For this lab, you may work in a pair if you would like, just be sure to document that on your submitted README file.",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node queue-server.js",
+    "start-dev": "nodemon queue-server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daniel-nguyen-401-advanced-javascript/lab-19.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daniel-nguyen-401-advanced-javascript/lab-19/issues"
+  },
+  "homepage": "https://github.com/daniel-nguyen-401-advanced-javascript/lab-19#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0"
+  }
+}
